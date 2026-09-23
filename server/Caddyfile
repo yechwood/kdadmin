@@ -1,0 +1,4 @@
+# Replace YOUR_HOSTNAME_HERE with the public hostname for Kodroid.
+YOUR_HOSTNAME_HERE {
+  reverse_proxy api:8080
+}
