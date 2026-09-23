@@ -1,0 +1,22 @@
+name: Test Kodroid Server
+on:
+  push:
+    paths:
+      - "server/**"
+      - ".github/workflows/server.yml"
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check server.js
+      - run: node server.js > /tmp/kodroid-server.log 2>&1 & echo $! > /tmp/kodroid-server.pid
+      - run: sleep 2 && curl --fail http://127.0.0.1:8080/v1/health
+      - run: kill $(cat /tmp/kodroid-server.pid)
