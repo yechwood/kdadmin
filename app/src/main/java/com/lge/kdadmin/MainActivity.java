@@ -1,5 +1,5 @@
 package com.lge.kdadmin;
-import android.app.*;import android.graphics.*;import android.graphics.drawable.*;import android.os.*;import android.widget.*;import java.security.*;import java.util.*;
+import android.app.*;import android.view.*;import android.graphics.*;import android.graphics.drawable.*;import android.os.*;import android.widget.*;import java.security.*;import java.util.*;
 public class MainActivity extends Activity{
  android.content.SharedPreferences sp;EditText code,pkg;TextView status,detail,apps,policy;Spinner list;ArrayList<Device>ds=new ArrayList<>();int blue=Color.rgb(38,99,235),dark=Color.rgb(20,28,45);
  TextView t(String s,float z){TextView v=new TextView(this);v.setText(s);v.setTextSize(z);v.setTextColor(dark);v.setPadding(0,5,0,5);return v;}
